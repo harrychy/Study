@@ -1,0 +1,24 @@
+<mapper namespace="com.chy.dao.IUserDao">
+
+    <!--sql的唯一标识：namespace.id来组成： statementId-->
+    <select id="findAll" resultType="com.chy.pojo.User" mapperType="select">
+        select * from user
+    </select>
+
+    <select id="findByCondition" resultType="com.chy.pojo.User" paramterType="com.chy.pojo.User" mapperType="select">
+        select * from user where id = #{id} and name = #{name}
+    </select>
+
+    <insert id="addOne" paramterType="com.chy.pojo.User" mapperType="insert">
+        insert into User(id,name) values (#{id}, #{name})
+    </insert>
+
+    <update id="update" resultType="com.chy.pojo.User" paramterType="com.chy.pojo.User" mapperType="update">
+        update User set id = #{id}, name = #{name} where id = #{id}
+    </update>
+
+    <delete id="delete" paramterType="com.chy.pojo.User" mapperType="delete">
+        delete from user where id = #{id}
+    </delete>
+
+</mapper>
